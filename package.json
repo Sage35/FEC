@@ -4,7 +4,7 @@
   "description": "Front End Capstone project",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack --mode development --watch",
+    "react-dev": "webpack --mode development",
     "test": "npx jest --watch",
     "sass-comp": "sass /Users/dbdav1/FEC/styles/test.scss /Users/dbdav1/FEC/styles/test.css",
     "start": "nodemon server"
