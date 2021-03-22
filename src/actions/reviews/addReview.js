@@ -1,4 +1,3 @@
-// import TOKEN from '../../../config.js';
 import axios from 'axios';
 import fetchReviews from './fetchReviews.js';
 import store from '../../store/store.js';
@@ -9,7 +8,10 @@ var addReview = (productId, count = 2, sort = 'relevant', rating, summary, body,
 
     axios({
       method: 'post',
-      url: `/reviews/`,
+      url: `http://${process.env.SERVER_IP}:3000/reviews/`,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       data: {
         product_id: productId,
         rating: rating,
@@ -21,12 +23,6 @@ var addReview = (productId, count = 2, sort = 'relevant', rating, summary, body,
         photos: photos,
         characteristics: characteristics
       }
-      // transformRequest: [function (data, headers) {
-      //   // Do whatever you want to transform the data
-      //   data = JSON.stringify(data)
-      //   return data;
-      // }],
-
 
     }).then((res) => {
       console.log(res, 'res');
@@ -37,7 +33,6 @@ var addReview = (productId, count = 2, sort = 'relevant', rating, summary, body,
       }
 
        fetchReviews(productId, count, sort);
-      //  return res;
       })
       .catch((err) => {
         console.log(err, 'err')
@@ -46,5 +41,4 @@ var addReview = (productId, count = 2, sort = 'relevant', rating, summary, body,
   }
 }
 
-
-  export default addReview
+export default addReview;

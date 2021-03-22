@@ -5,7 +5,7 @@ import store from '../../store/store.js';
 
 var fetchReviewMeta = (productId) => {
   return (dispatch) => {
-    axios.get(`/reviews/meta/?product_id=${productId}`)
+    axios.get(`http://${process.env.SERVER_IP}:3000/reviews/meta/?product_id=${productId}`)
       .then(({data}) => {
         dispatch(showReviewMeta(data))
       })
@@ -15,5 +15,4 @@ var fetchReviewMeta = (productId) => {
   }
 }
 
-
-  export default fetchReviewMeta
+export default fetchReviewMeta;

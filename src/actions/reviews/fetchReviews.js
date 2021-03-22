@@ -4,19 +4,12 @@ import showReviews from './showReviews.js';
 import store from '../../store/store.js';
 
 var fetchReviews = (productId, count = 2, sort = 'relevant', filter = []) => {
-
   return (dispatch) => {
-    axios.get(`/reviews/?product_id=${productId}&count=${count}&sort=${sort}`)
+    axios.get(`http://${process.env.SERVER_IP}:3000/reviews/?product_id=${productId}&count=${count}&sort=${sort}`)
       .then(({data}) => {
-
-          if (filter.length > 0) {
-
-
-              data.results = data.results.filter(element => filter.indexOf(element.rating) >= 0)
-          }
-
-
-
+        if (filter.length > 0) {
+          data.results = data.results.filter(element => filter.indexOf(element.rating) >= 0)
+        }
         dispatch(showReviews(data, count, sort, filter))
       })
       .catch((err) => {
@@ -25,5 +18,4 @@ var fetchReviews = (productId, count = 2, sort = 'relevant', filter = []) => {
   }
 }
 
-
-  export default fetchReviews
+export default fetchReviews;
