@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require("path");
 const SRC_DIR = path.resolve(__dirname, "src");
 const DIST_DIR = path.resolve(__dirname, "dist");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: ['react-hot-loader/patch', `${SRC_DIR}/index.jsx`],
@@ -29,5 +30,8 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist'
-  }
+  },
+  plugins: [
+    new Dotenv()
+  ]
 };
