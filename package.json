@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/The-Backers/FEC#readme",
   "devDependencies": {
+    "dotenv-webpack": "^7.0.2",
     "enzyme-to-json": "^3.6.1",
     "eslint": "^7.20.0",
     "eslint-config-airbnb": "^18.2.1",
