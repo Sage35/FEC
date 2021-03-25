@@ -2,4 +2,8 @@ node_modules
 dist/bundle.js
 config.js
 coverage
+<<<<<<< HEAD
 .env
+=======
+.env
+>>>>>>> cefc2552326f988887d9e1077ac50038b8168146

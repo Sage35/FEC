@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 8000;
 const path = require('path');
 const axios = require('axios');
 const TOKEN = require('../config.js');
@@ -21,7 +21,6 @@ app.get('/*', function (req, res, next) {
     }
   })
     .then((response) => {
-      console.log('successful!');
       res.status(200).send(response.data);
     })
     .catch((err) => {
@@ -39,7 +38,6 @@ app.post('/*', function (req, res, next) {
     }
   })
     .then((response) => {
-      console.log('successful!');
       res.status(201).send(response.data);
     })
     .catch((err) => {
