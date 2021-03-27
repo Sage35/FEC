@@ -9,7 +9,7 @@ import setQuantity from './setQuantity';
 var fetchStyles = (productId) => {
 
   return (dispatch) => {
-    return axios.get(`/products/${productId}/styles`).then(({data}) => {
+    return axios.get(`/products/${productId}/styles`).then(({data}) => { //TODO Update to include the http
     dispatch(setStyles(data));
     return data;
 
@@ -32,7 +32,6 @@ var fetchStyles = (productId) => {
     console.log(err);
   })
   }
-
 }
 
 

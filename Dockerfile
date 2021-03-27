@@ -10,7 +10,7 @@ COPY . ./
 
 RUN npm run react-dev
 
-EXPOSE 8000
+EXPOSE 3000
 EXPOSE 80
 
 CMD [ "node", "server" ]
