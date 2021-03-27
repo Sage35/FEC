@@ -1,11 +1,11 @@
-// import TOKEN from '../../../config.js';
 import axios from 'axios';
 import showReviews from './showReviews.js';
 import store from '../../store/store.js';
+const server = process.env.SERVER_IP || 'localhost:3000';
 
 var fetchReviews = (productId, count = 2, sort = 'relevant', filter = []) => {
   return (dispatch) => {
-    axios.get(`http://${process.env.SERVER_IP}:3000/reviews/?product_id=${productId}&count=${count}&sort=${sort}`)
+    axios.get(`http://${server}/reviews/?product_id=${productId}&count=${count}&sort=${sort}`)
       .then(({data}) => {
         if (filter.length > 0) {
           data.results = data.results.filter(element => filter.indexOf(element.rating) >= 0)

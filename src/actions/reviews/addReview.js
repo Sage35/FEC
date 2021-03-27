@@ -1,6 +1,7 @@
 import axios from 'axios';
 import fetchReviews from './fetchReviews.js';
 import store from '../../store/store.js';
+const server = process.env.SERVER_IP || 'localhost:3000';
 
 var addReview = (productId, count = 2, sort = 'relevant', rating, summary, body, recommend, name, email, photos, characteristics) => {
   console.log(productId, count, 'addReviews')
@@ -8,7 +9,7 @@ var addReview = (productId, count = 2, sort = 'relevant', rating, summary, body,
 
     axios({
       method: 'post',
-      url: `http://${process.env.SERVER_IP}:3000/reviews/`,
+      url: `http://${server}/reviews/`,
       headers: {
         'Content-Type': 'application/json'
       },
